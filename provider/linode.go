@@ -231,7 +231,7 @@ func (p *LinodeProvider) submitChanges(changes []*LinodeChange) error {
 			switch change.Action {
 			case LinodeCreate:
 				_, err = p.Client.CreateDomainRecord(context.TODO(), domainID,
-					&linodego.DomainRecordCreateOptions{
+					linodego.DomainRecordCreateOptions{
 						Target:   change.DomainRecord.Target,
 						Name:     change.DomainRecord.Name,
 						Type:     change.DomainRecord.Type,
